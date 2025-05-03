@@ -46,8 +46,8 @@ def token_required(f):
     return decorated
 
 def is_valid_email(email):
-    # Verifica se o e-mail está no formato correto
-    email_regex = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
+    # Atualizei a expressão regular para maior compatibilidade com e-mails válidos
+    email_regex = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
     return re.match(email_regex, email) is not None
 
 def is_strong_password(password):
