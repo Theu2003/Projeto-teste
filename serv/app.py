@@ -3,7 +3,7 @@ import sqlite3
 from urllib.parse import parse_qs
 import os
 
-app = Flask(__name__, static_folder='c:/Users/mateu/OneDrive/Documentos/GitHub/Projeto-teste', static_url_path='/static')
+app = Flask(__name__, static_folder='../', static_url_path='')
 
 def init_db():
     # Inicializa o banco de dados e cria a tabela de usuários, se não existir
