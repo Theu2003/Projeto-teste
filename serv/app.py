@@ -3,7 +3,7 @@ import sqlite3
 from urllib.parse import parse_qs
 import os
 
-app = Flask(__name__, static_folder='c:/Users/mateu/OneDrive/Documentos/GitHub/Projeto-teste', static_url_path='')
+app = Flask(__name__, static_folder='c:/Users/mateu/OneDrive/Documentos/GitHub/Projeto-teste', static_url_path='/static')
 
 def init_db():
     # Inicializa o banco de dados e cria a tabela de usuários, se não existir
@@ -19,9 +19,9 @@ def init_db():
         conn.commit()
 
 # Configuração para servir arquivos estáticos
-@app.route('/<path:filename>')
+@app.route('/static/<path:filename>')
 def static_files(filename):
-    return send_from_directory(os.path.dirname(__file__), filename)
+    return send_from_directory(app.static_folder, filename)
 
 @app.route('/register', methods=['POST'])
 def register():
@@ -76,4 +76,4 @@ def index():
 
 if __name__ == '__main__':
     init_db()
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
