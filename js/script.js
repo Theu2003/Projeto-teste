@@ -10,6 +10,22 @@ function showError(input, message) {
   input.style.borderColor = 'red';
 }
 
+// Função para exibir notificações
+function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+        notification.classList.add('fade-out');
+        notification.addEventListener('transitionend', () => {
+            notification.remove();
+        });
+    }, 3000);
+}
+
 // Remove mensagens de erro anteriores
 function clearErrors(form) {
   const errors = form.querySelectorAll('small');

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Perfil do Usuário</h1>
+        <nav>
+            <a href="index.html">Página Inicial</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="fade-in">
+            <h2>Atualizar Informações</h2>
+            <form id="profileForm">
+                <p>
+                    <label for="username">Nome de Usuário</label>
+                    <input type="text" id="username" name="username" required>
+                </p>
+                <p>
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </p>
+                <p>
+                    <label for="password">Nova Senha</label>
+                    <input type="password" id="password" name="password">
+                </p>
+                <p>
+                    <input type="submit" value="Atualizar">
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const profileForm = document.getElementById('profileForm');
+
+            // Função para carregar informações do usuário
+            async function loadUserProfile() {
+                try {
+                    const response = await fetch('/user/profile', {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Erro ao carregar informações do perfil.');
+                    }
+
+                    const user = await response.json();
+                    document.getElementById('username').value = user.username;
+                    document.getElementById('email').value = user.email;
+                } catch (error) {
+                    console.error(error);
+                    alert('Não foi possível carregar as informações do perfil.');
+                }
+            }
+
+            // Função para atualizar informações do usuário
+            profileForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                const username = document.getElementById('username').value;
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                try {
+                    const response = await fetch('/user/profile', {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ username, email, password })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Erro ao atualizar informações do perfil.');
+                    }
+
+                    alert('Informações atualizadas com sucesso!');
+                } catch (error) {
+                    console.error(error);
+                    alert('Não foi possível atualizar as informações do perfil.');
+                }
+            });
+
+            // Carregar informações do usuário ao carregar a página
+            loadUserProfile();
+        });
+    </script>
+</body>
+</html>

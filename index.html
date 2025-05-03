@@ -13,7 +13,12 @@
   <header>
     <h1>Projeto Sustentável</h1>
     <nav aria-label="Menu principal">
-      <ul>
+      <button class="hamburger" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="menu">
         <li><a href="#inicio">Início</a></li>
         <li><a href="agenda.html">Agenda de Coleta</a></li>
         <li><a href="educacao.html">Educação Ambiental</a></li>
@@ -56,5 +61,16 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const menu = document.querySelector('.menu');
+
+      hamburger.addEventListener('click', () => {
+        menu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+      });
+    });
+  </script>
 </body>
 </html>
