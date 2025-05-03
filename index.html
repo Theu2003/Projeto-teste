@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Sustentável</title>
+  <link rel="icon" type="image/png" href="image/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="background-bubbles" aria-hidden="true"></div>
+
+  <header>
+    <h1>Projeto Sustentável</h1>
+    <nav aria-label="Menu principal">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="agenda.html">Agenda de Coleta</a></li>
+        <li><a href="educacao.html">Educação Ambiental</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="login-button">
+      <a href="login.html">Login</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio">
+      <h2>Bem-vindo ao nosso sistema de coleta!</h2>
+      <p>Contribua com um mundo mais limpo e sustentável.</p>
+    </section>
+
+    <section id="agenda">
+      <h2>Agenda de Coleta</h2>
+      <p>Em breve você poderá consultar os dias e locais de coleta por bairro.</p>
+    </section>
+
+    <section id="educacao">
+      <h2>Educação Ambiental</h2>
+      <p>Aprenda sobre os tipos de lixo e como reciclá-los corretamente.</p>
+      <p><strong>Dica rápida:</strong> Separe o lixo orgânico do reciclável e não descarte pilhas ou eletrônicos no lixo comum!</p>
+    </section>
+
+    <section id="contato">
+      <h2>Entre em contato</h2>
+      <p>Um projeto novo. Se você quiser mais informação, é só entrar em comunicação pelo WhatsApp ou pelo Instagram.<br>
+        ZAP: <a href="tel:+5538998962288">(38) 99896-2288</a><br>
+        Instagram: <a href="https://instagram.com/e_o__mm" target="_blank" rel="noopener">@e_o__mm</a></p>
+      <p>Formulário de solicitação ou denúncias — em breve!</p>
+    </section>
+
+    <section id="login">
+      <h2>Login</h2>
+      <form id="loginForm" action="http://127.0.0.1:5000/login" method="POST">
+        <label for="username">Usuário:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Entrar</button>
+      </form>
+    </section>
+
+    <section id="register">
+      <h2>Registrar</h2>
+      <form id="registerForm" action="http://127.0.0.1:5000/register" method="POST">
+        <label for="newUsername">Usuário:</label>
+        <input type="text" id="newUsername" name="username" required>
+
+        <label for="newPassword">Senha:</label>
+        <input type="password" id="newPassword" name="password" required>
+
+        <button type="submit">Registrar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; Mais informações em breve!</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
